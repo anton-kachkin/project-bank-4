@@ -27,7 +27,6 @@ public class HistoryServiceImpl implements HistoryService {
      */
     @Override
     public HistoryDto readById(Long id) {
-
         return mapper.toDto(repository.findById(id)
                 .orElseThrow(() -> returnEntityNotFoundException("история по указанному id не найдена")));
     }
