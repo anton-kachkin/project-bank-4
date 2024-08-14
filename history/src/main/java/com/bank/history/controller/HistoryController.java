@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -49,7 +50,7 @@ public class HistoryController {
      * @return {@link ResponseEntity} c {@link HistoryDto} и HttpStatus OK
      */
     @PostMapping
-    public ResponseEntity<HistoryDto> create(@RequestBody HistoryDto history) {
+    public ResponseEntity<HistoryDto> create(@Valid @RequestBody HistoryDto history) {
         return new ResponseEntity<>(service.create(history), HttpStatus.OK);
     }
 

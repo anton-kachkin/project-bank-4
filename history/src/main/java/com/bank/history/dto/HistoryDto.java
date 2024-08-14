@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
+import javax.validation.constraints.NotNull;
+
 
 /**
  * Dto для {@link HistoryEntity}.
@@ -20,6 +22,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class HistoryDto {
+    @NotNull(message = "ID cannot be null")
     Long id;
     Long transferAuditId;
     Long profileAuditId;
