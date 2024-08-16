@@ -46,7 +46,6 @@ public class SuspiciousPhoneTransferServiceImpl implements SuspiciousPhoneTransf
      */
     @Override
     public SuspiciousPhoneTransferDto findById(Long id) {
-
         final SuspiciousPhoneTransferEntity phoneTransfer = repository.findById(id)
                 .orElseThrow(() -> returner.getEntityNotFoundException(MESSAGE));
 
@@ -61,7 +60,6 @@ public class SuspiciousPhoneTransferServiceImpl implements SuspiciousPhoneTransf
     @Override
     @Transactional
     public SuspiciousPhoneTransferDto update(Long id, SuspiciousPhoneTransferDto phoneTransfer) {
-
         final SuspiciousPhoneTransferEntity suspiciousTransfer = repository.findById(id)
                 .orElseThrow(() -> returner.getEntityNotFoundException(MESSAGE));
 
@@ -76,7 +74,6 @@ public class SuspiciousPhoneTransferServiceImpl implements SuspiciousPhoneTransf
      */
     @Override
     public List<SuspiciousPhoneTransferDto> findAllById(List<Long> ids) {
-
         final List<SuspiciousPhoneTransferEntity> suspiciousPhoneTransfers = ids.stream()
                 .map(id -> repository.findById(id)
                         .orElseThrow(() -> returner.getEntityNotFoundException(MESSAGE)))

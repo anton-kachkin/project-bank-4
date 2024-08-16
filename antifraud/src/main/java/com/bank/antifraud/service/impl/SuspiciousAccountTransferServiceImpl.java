@@ -60,7 +60,6 @@ public class SuspiciousAccountTransferServiceImpl implements SuspiciousAccountTr
     @Override
     @Transactional
     public SuspiciousAccountTransferDto update(Long id, SuspiciousAccountTransferDto accountTransfer) {
-
         final SuspiciousAccountTransferEntity suspiciousTransfer = repository.findById(id)
                 .orElseThrow(() -> returner.getEntityNotFoundException(MESSAGE));
 
@@ -75,7 +74,6 @@ public class SuspiciousAccountTransferServiceImpl implements SuspiciousAccountTr
      */
     @Override
     public List<SuspiciousAccountTransferDto> findAllById(List<Long> ids) {
-
         final List<SuspiciousAccountTransferEntity> suspiciousAccountTransfers = ids.stream()
                 .map(id -> repository.findById(id)
                         .orElseThrow(() -> returner.getEntityNotFoundException(MESSAGE)))

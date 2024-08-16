@@ -32,7 +32,6 @@ public class SuspiciousCardTransferServiceImpl implements SuspiciousCardTransfer
     @Override
     @Transactional
     public SuspiciousCardTransferDto save(SuspiciousCardTransferDto cardTransfer) {
-
         final SuspiciousCardTransferEntity suspiciousTransfer = repository.save(
                 mapper.toEntity(cardTransfer)
         );
@@ -60,7 +59,6 @@ public class SuspiciousCardTransferServiceImpl implements SuspiciousCardTransfer
     @Override
     @Transactional
     public SuspiciousCardTransferDto update(Long id, SuspiciousCardTransferDto cardTransfer) {
-
         final SuspiciousCardTransferEntity suspiciousTransfer = repository.findById(id)
                 .orElseThrow(() -> returner.getEntityNotFoundException(MESSAGE));
 
@@ -75,7 +73,6 @@ public class SuspiciousCardTransferServiceImpl implements SuspiciousCardTransfer
      */
     @Override
     public List<SuspiciousCardTransferDto> findAllById(List<Long> ids) {
-
         final List<SuspiciousCardTransferEntity> suspiciousCardTransfers = ids.stream()
                 .map(id -> repository.findById(id)
                         .orElseThrow(() -> returner.getEntityNotFoundException(MESSAGE)))
