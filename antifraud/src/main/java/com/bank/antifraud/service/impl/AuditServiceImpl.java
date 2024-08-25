@@ -5,7 +5,9 @@ import com.bank.antifraud.entity.AuditEntity;
 import com.bank.antifraud.mappers.AuditMapper;
 import com.bank.antifraud.repository.AuditRepository;
 import com.bank.antifraud.service.AuditService;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -15,9 +17,12 @@ import javax.persistence.EntityNotFoundException;
  */
 @Service
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AuditServiceImpl implements AuditService {
-    private final AuditRepository repository;
-    private final AuditMapper mapper;
+
+    AuditRepository repository;
+
+    AuditMapper mapper;
 
     /**
      * @param id технический идентификатор {@link AuditEntity}

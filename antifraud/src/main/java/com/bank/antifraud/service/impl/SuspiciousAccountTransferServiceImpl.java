@@ -6,7 +6,9 @@ import com.bank.antifraud.mappers.SuspiciousAccountTransferMapper;
 import com.bank.antifraud.repository.SuspiciousAccountTransferRepository;
 import com.bank.antifraud.service.SuspiciousAccountTransferService;
 import com.bank.antifraud.service.common.ExceptionReturner;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,13 +19,16 @@ import java.util.List;
  */
 @Service
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class SuspiciousAccountTransferServiceImpl implements SuspiciousAccountTransferService {
 
-    private static final String MESSAGE = "SuspiciousAccountTransfer по данному id не существует";
+    static final String MESSAGE = "SuspiciousAccountTransfer по данному id не существует";
 
-    private final SuspiciousAccountTransferRepository repository;
-    private final SuspiciousAccountTransferMapper mapper;
-    private final ExceptionReturner returner;
+    SuspiciousAccountTransferRepository repository;
+
+    SuspiciousAccountTransferMapper mapper;
+
+    ExceptionReturner returner;
 
     /**
      * @param accountTransfer {@link SuspiciousAccountTransferDto}
